@@ -519,7 +519,7 @@ class CFExperiment(Experiment):
         lines_user_id = codecs.open('%s/%s_userid.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
         lines_item_id = codecs.open('%s/%s_itemid.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
         lines_rating = codecs.open('%s/%s_rating.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
-        lines_review = codecs.open('%s/%s_review_1.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
+        lines_review = codecs.open('%s/%s_review.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
 
         reviews = []
 
