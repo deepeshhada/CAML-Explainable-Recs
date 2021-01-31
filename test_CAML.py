@@ -344,7 +344,7 @@ class CFExperiment(Experiment):
         lines_user_id = codecs.open('%s/%s_userid.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
         lines_item_id = codecs.open('%s/%s_itemid.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
         lines_rating = codecs.open('%s/%s_rating.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
-        lines_review = codecs.open('%s/%s_review_1.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
+        lines_review = codecs.open('%s/%s_review.txt' % (data_dir, dataset_type), 'rb', 'utf-8').readlines()
 
         reviews = []
 
@@ -595,14 +595,14 @@ class CFExperiment(Experiment):
         scores = []
 
         #data = self._prepare_set(self.test_rating_set, self.test_reviews)
-        #data = self._combine_reviews(self.test_rating_set, self.test_reviews)
-        data = self._combine_reviews(self.train_rating_set, self.train_reviews)
+        data = self._combine_reviews(self.test_rating_set, self.test_reviews)
+        # data = self._combine_reviews(self.train_rating_set, self.train_reviews)
         num_batches = int(len(data) / self.args.batch_size)
 
         mkdir_p(self.args.gen_dir)
         mkdir_p(self.args.gen_true_dir)
-        self.mdl.saver = tf.train.import_meta_graph('/home/tejas/workspace/CAML/cv/test/A2_Amazon_Instant_Video/RAW_MSE_CAML_FN_FM/25:12:00:06:14/model.ckpt-1.meta')
-        self.mdl.saver.restore(self.sess, '/home/tejas/workspace/CAML/cv/test/A2_Amazon_Instant_Video/RAW_MSE_CAML_FN_FM/25:12:00:06:14/model.ckpt-1')
+        self.mdl.saver = tf.train.import_meta_graph(self.args.model_meta)
+        self.mdl.saver.restore(self.sess, self.args.model)
 
         data_len = len(data)
 
