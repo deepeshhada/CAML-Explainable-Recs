@@ -170,6 +170,8 @@ def build_parser():
        default='logs', help='gen rouge file directory')
     ps('--model', dest='model', type=str,
        default='logs', help='model path')
+    ps('--model_meta', dest='model_meta', type=str,
+       default='logs', help='model meta path')
     ps('--gen_true_dir', dest='gen_true_dir', type=str,
        default='logs', help='gen true rouge file directory')
     ps("--beam_size", dest="beam_size", type=int, metavar='<int>',
