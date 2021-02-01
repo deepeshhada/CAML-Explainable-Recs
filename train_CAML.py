@@ -748,7 +748,7 @@ class CFExperiment(Experiment):
         predict_op = self.mdl.predict_op
         actual_labels = [x[2] for x in data]
         for i in tqdm(range(num_batches+1)):
-            print('Num users are',self.mdl.num_user)
+            # print('Num users are',self.mdl.num_user)
             batch = batchify(data, i, bsz, max_sample=len(data))
             batch = self._prepare_set(batch)
 
@@ -885,7 +885,7 @@ class CFExperiment(Experiment):
                     continue
 
                 batch = self._prepare_set(batch)
-                print('Preparing again')
+                # print('Preparing again')
                 feed_dict = self.mdl.get_feed_dict(batch)
                 train_op = self.mdl.train_op
                 run_options = tf.RunOptions(timeout_in_ms=10000)

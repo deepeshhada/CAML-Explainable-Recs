@@ -57,8 +57,8 @@ EOS = "<EOS>"
 def batchify(data, i, bsz, max_sample):
     start = int(i * bsz)
     end = int(i * bsz) + bsz
-    print('See here')
-    print(max_sample)
+    # print('See here')
+    # print(max_sample)
     if(end>max_sample):
         end = max_sample
     new_data = data[start:end]
