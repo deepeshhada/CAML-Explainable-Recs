@@ -850,10 +850,10 @@ class CFExperiment(Experiment):
         epoch_scores = {}
         self.eval_list = []
         data = self._combine_reviews(self.train_rating_set, self.train_reviews)
-        #self.test_set = self._combine_reviews(self.test_rating_set, self.test_reviews)
-        #self.dev_set = self._combine_reviews(self.dev_rating_set, self.dev_reviews)
-        self.dev_set = data
-        self.test_set = data
+        self.test_set = self._combine_reviews(self.test_rating_set, self.test_reviews)
+        self.dev_set = self._combine_reviews(self.dev_rating_set, self.dev_reviews)
+        # self.dev_set = data
+        # self.test_set = data
         self.mdl.saver.save(self.sess, '%s/model.ckpt' % (self.out_dir), global_step = 0)
 
 
