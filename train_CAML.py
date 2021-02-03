@@ -531,7 +531,7 @@ class CFExperiment(Experiment):
                 concept_dict[" ".join(words[:l - i])] = 1
 
         for i in range(len(lines_rating)):
-            output.append([int(lines_user_id[i].strip()), int(lines_item_id[i].strip()), int(lines_rating[i].strip())])
+            output.append([int(lines_user_id[i].strip()), int(float(lines_item_id[i].strip())), int(float(lines_rating[i].strip()))])
 
             linedata = []
             line = lines_review[i].strip()
